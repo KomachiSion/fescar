@@ -69,7 +69,7 @@ public class StorageServiceImpl implements StorageService {
         context.getBean("service");
         JdbcTemplate jdbcTemplate = (JdbcTemplate)context.getBean("jdbcTemplate");
         jdbcTemplate.update("delete from storage_tbl where commodity_code = 'C00321'");
-        jdbcTemplate.update("insert into storage_tbl(commodity_code, count) values ('C00321', 100)");
+        jdbcTemplate.update("insert into storage_tbl(commodity_code, count) values ('C00321', "+Integer.MAX_VALUE+")");
         new ApplicationKeeper(context).keep();
     }
 }
